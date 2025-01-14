@@ -1,31 +1,32 @@
 # Project Nürburgring
 
-A minimalistic React application to track and display lap times around the Nürburgring track. Users can add their car name and lap times, view them in a leaderboard, and toggle between dark and light themes.
+A minimalist React application that tracks and displays lap times around the iconic Nürburgring track. Users can input their car names and lap times, view the leaderboard, and toggle between light and dark themes for an enhanced user experience.
 
 ## Features
 
 - Add, edit, and delete lap times.
-- Display lap times in `mm:ss.mss` format.
+- Display lap times in `mm:ss.mss` format for accurate timing.
 - Sort lap times in descending order (fastest times first).
 - Toggle between light and dark themes.
-- Responsive layout for different screen sizes.
+- Responsive design that adapts to different screen sizes and devices.
+- Persistent theme preference stored in `LocalStorage` for consistent user experience.
 
 ## Technologies Used
 
-- React
-- React Icons
-- Font Awesome
-- CSS (custom styling)
-- LocalStorage for theme persistence
+- **React**: The core library for building the UI.
+- **React Icons**: Used for adding icons (such as the dark mode toggle).
+- **Font Awesome**: For beautiful icons like the sun and moon.
+- **CSS (Custom Styling)**: Styling for light and dark themes, form elements, and responsive layouts.
+- **LocalStorage**: To persist the selected theme across browser sessions.
 
 ## Getting Started
 
-To get a local copy of the project up and running on your machine, follow these steps:
+To set up and run the project locally, follow these steps:
 
 1. Clone the repository:
 
    ```
-   git clone https://github.com/yourusername/project-nurburgring.git
+   git clone https://github.com/StratosMylonas/project-nurburgring.git
    ```
 
 2. Navigate to the project directory:
