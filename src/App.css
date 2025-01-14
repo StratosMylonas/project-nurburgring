@@ -1,0 +1,249 @@
+/* src/App.css */
+
+/* Dark and Light Theme Variables */
+:root {
+  --background-color-light: #f7f9fb;
+  --background-color-dark: #2c2c2c;
+  --primary-color-light: #fff;
+  --primary-color-dark: #333;
+  --text-color-light: #333;
+  --text-color-dark: #fff;
+  --button-bg-light: #28a745;
+  --button-bg-dark: #007bff;
+}
+
+/* General Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Main App Container */
+.app-container {
+  text-align: center;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container.dark {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+/* Title */
+.app-title {
+  font-size: 2em;
+  color: inherit;
+  margin-bottom: 20px;
+}
+
+/* Theme Switch */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Switch Style */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  border-radius: 50px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+/* Form Styles */
+.add-lap-form, .edit-form {
+  margin-bottom: 20px;
+}
+
+.add-lap-form input, .edit-form input {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 60px;
+  text-align: center;
+}
+
+/* Time Picker */
+.time-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-picker input {
+  width: 60px;
+  text-align: center;
+}
+
+/* Submit Button */
+.submit-button, .edit-form button {
+  background-color: var(--button-bg-light);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover, .edit-form button:hover {
+  background-color: #218838;
+}
+
+/* Leaderboard Styles */
+.leaderboard-container {
+  margin-top: 30px;
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.leaderboard {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+  background: linear-gradient(135deg, #e2e8f0, #f0f4f8);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.position {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.car-name {
+  color: #4a4a4a;
+  font-size: 1.1em;
+  text-transform: capitalize;
+}
+
+.lap-time {
+  font-size: 1.1em;
+  color: #007bff;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.actions button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+  background-color: #0056b3;
+}
+
+.actions i {
+  font-size: 1.2em;
+}
+
+.actions button i {
+  margin-right: 5px;
+}
+
+/* Responsive Leaderboard */
+@media (max-width: 768px) {
+  .leaderboard-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .position,
+  .car-name,
+  .lap-time {
+    font-size: 1em;
+  }
+
+  .actions {
+    margin-top: 10px;
+  }
+}
+
+/* Dark Mode Styles */
+.app-container.dark {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.app-container.dark .submit-button {
+  background-color: var(--button-bg-dark);
+}
+
+.app-container.dark .submit-button:hover {
+  background-color: #0056b3;
+}
