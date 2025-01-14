@@ -1,4 +1,3 @@
-// src/components/Leaderboard.js
 import React, { useState } from 'react';
 
 const Leaderboard = ({ lapTimes, updateLapTimes }) => {
@@ -11,7 +10,7 @@ const Leaderboard = ({ lapTimes, updateLapTimes }) => {
 
   const handleDelete = (index) => {
     const updatedLapTimes = lapTimes.filter((_, i) => i !== index);
-    updateLapTimes(updatedLapTimes); // Pass updated lap times to parent (App.js)
+    updateLapTimes(updatedLapTimes); // Update state and localStorage
   };
 
   const handleEdit = (lapTime, index) => {
@@ -24,16 +23,14 @@ const Leaderboard = ({ lapTimes, updateLapTimes }) => {
       const [mins, secsMillis] = lapTime.lapTime.split(':');
       if (secsMillis) {
         const [secs, ms] = secsMillis.split('.');
-        setMinutes(mins.padStart(2, '0'));  // Ensure two-digit minute format
-        setSeconds(secs.padStart(2, '0'));  // Ensure two-digit seconds format
-        setMilliseconds(ms.padStart(2, '0')); // Ensure two-digit milliseconds format
+        setMinutes(mins.padStart(2, '0'));
+        setSeconds(secs.padStart(2, '0'));
+        setMilliseconds(ms.padStart(2, '0'));
       } else {
-        // If lapTime format is invalid, reset fields
         setSeconds('00');
         setMilliseconds('00');
       }
     } else {
-      // If lapTime is missing or undefined, reset form
       resetEditForm();
     }
   };
@@ -45,7 +42,7 @@ const Leaderboard = ({ lapTimes, updateLapTimes }) => {
       carName,
       lapTime: `${minutes}:${seconds}.${milliseconds}`,
     };
-    updateLapTimes(updatedLapTimes);
+    updateLapTimes(updatedLapTimes); // Update state and localStorage
     resetEditForm();
   };
 
@@ -69,10 +66,10 @@ const Leaderboard = ({ lapTimes, updateLapTimes }) => {
             <div className="lap-time">{lapTime.lapTime}</div>
             <div className="actions">
               <button onClick={() => handleEdit(lapTime, index)}>
-                <i className="fas fa-pencil-alt"></i> {/* Pencil icon */}
+                <i className="fas fa-pencil-alt"></i>
               </button>
               <button onClick={() => handleDelete(index)}>
-                <i className="fas fa-trash"></i> {/* Trash bin icon */}
+                <i className="fas fa-trash"></i>
               </button>
             </div>
           </li>

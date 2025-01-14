@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';  // Make sure to import the CSS file
+import './App.css';
 import Leaderboard from './components/Leaderboard';
 import AddLapTimeForm from './components/AddLapTimeForm';
 
@@ -15,16 +15,25 @@ function App() {
     }
   }, []);
 
-  // Update theme preference and store it in localStorage
+  // Load lap times from localStorage
+  useEffect(() => {
+    const storedLapTimes = localStorage.getItem('lapTimes');
+    if (storedLapTimes) {
+      setLapTimes(JSON.parse(storedLapTimes)); // Parse JSON string back to array
+    }
+  }, []);
+
+  // Update lap times in state and localStorage
+  const updateLapTimes = (newLapTimes) => {
+    setLapTimes(newLapTimes);
+    localStorage.setItem('lapTimes', JSON.stringify(newLapTimes)); // Save updated lap times to localStorage
+  };
+
+  // Toggle theme mode and store in localStorage
   const handleToggleMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
     localStorage.setItem('theme', newMode ? 'dark' : 'light');
-  };
-
-  // Function to update lap times in the state
-  const updateLapTimes = (newLapTimes) => {
-    setLapTimes(newLapTimes);
   };
 
   return (
